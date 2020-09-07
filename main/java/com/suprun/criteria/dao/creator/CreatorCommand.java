@@ -47,6 +47,4 @@ public interface CreatorCommand {
         }
         return value;
     }
-
-
 }
