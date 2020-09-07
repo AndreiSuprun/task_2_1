@@ -21,7 +21,7 @@ public class Validator {
         if (criteriaClass == null) {
             return false;
         }
-        List<?> enumConstants = Arrays.asList(criteriaClass.getEnumConstants());
+        var enumConstants = Arrays.asList(criteriaClass.getEnumConstants());
         boolean isParameterPresent = false;
         for (String searchParameter : criteria.getSearchCriteriaSet()) {
             if (searchParameter == null || searchParameter.isEmpty()) {
