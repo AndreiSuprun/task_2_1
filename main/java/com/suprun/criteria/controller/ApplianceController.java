@@ -19,7 +19,7 @@ public class ApplianceController {
     }
 
     public Map<String, Object> processRequest(Criteria request) {
-        ApplianceCommand applianceCommand = new CommandProvider().receiveCommand(request);
+        ApplianceCommand applianceCommand = CommandProvider.getInstance().receiveCommand(request);
         Map<String, Object> response = applianceCommand.execute(request);
         return response;
     }
