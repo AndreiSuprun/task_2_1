@@ -9,6 +9,17 @@ public class CreatorProvider {
 
     private static final String APPLIANCE_TYPE_SELECTOR = "\\b\\w+";
     private static final String EMPTY_STRING = "";
+    
+    private static CreatorProvider instance;
+
+    private CreatorProvider(){};
+
+    public static CreatorProvider getInstance(){
+        if (instance == null){
+            instance = new CreatorProvider();
+        }
+        return instance;
+    }
 
     enum Creator{
         LAPTOP(new LaptopCreator()), OVEN(new OvenCreator()), REFRIGERATOR(new RefrigeratorCreator()),
