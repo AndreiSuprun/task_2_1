@@ -6,6 +6,17 @@ import com.suprun.criteria.controller.command.impl.FindByParameterApplianceComma
 import com.suprun.criteria.entity.criteria.Criteria;
 
 public class CommandProvider {
+    
+    private static CommandProvider instance;
+
+    private CommandProvider(){};
+
+    public static CommandProvider getInstance(){
+        if (instance == null){
+            instance = new CommandProvider();
+        }
+        return instance;
+    }
 
     public ApplianceCommand receiveCommand(Criteria criteria){
         ApplianceCommand command;
