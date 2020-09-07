@@ -34,7 +34,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
             Stream<String> applianceStream = Files.lines(applianceSourcePath);
             appliances = applianceStream.filter(line -> predicate.test(line, criteria)).map(creatorCommand::create).collect(Collectors.toList());
         } catch (IOException e) {
-            throw new DAOException("File doesn't available", e);
+            throw new DAOException(e.getMessage(), e);
         }
         return appliances;
     }
@@ -46,7 +46,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         try {
             path = Path.of(fileName);
         } catch (InvalidPathException e) {
-            throw new DAOException("Invalid file path", e);
+            throw new DAOException(e.getMessage(), e);
         }
         return path;
     }
